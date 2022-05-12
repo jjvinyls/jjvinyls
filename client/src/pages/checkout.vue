@@ -84,14 +84,16 @@
 				<BRow>
 					<BCol md="4" class="mb-3 text-center">
 						<h1 class="text-center text-primary">Venmo</h1>
-						<BButton
-							variant="outline-light"
-							pill
-							size="lg"
-							class="w-100"
-							style="background-color: #3191c7;"
-							@click="copy('https://venmo.com/code?user_id=3266191640494080622')"
-						>@JJShop</BButton>
+						<a href="https://venmo.com/code?user_id=3266191640494080622">
+							<BButton
+								variant="outline-light"
+								pill
+								size="lg"
+								class="w-100"
+								style="background-color: #3191c7;"
+								@click="copy('@jjshop')"
+							>@JJShop</BButton>
+						</a>
 					</Bcol>
 
 					<BCol md="4" class="mb-3 text-center">
