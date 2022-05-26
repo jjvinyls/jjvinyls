@@ -31,7 +31,6 @@ module.exports = {
 				for (let i = 0; i < discogsListings.length; i++) {
 					const dL = discogsListings[i]
 					
-					console.log(dL);
 					if (dL.release.id == v.release_id) {
 						listings.push(
 							{
