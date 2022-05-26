@@ -1,6 +1,6 @@
 # JJ VINYLS
 
-## .Environmental Variables (Create .env file root)
+## Environmental Variables (Create .env file root)
 ###### Shopify access token is needed for shopify manager
 ```
 API__DISCOGS__USERTOKEN = < Discogs username >
