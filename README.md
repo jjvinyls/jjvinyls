@@ -2,6 +2,7 @@
 
 ## .Environmental Variables (Create .env file root)
 ###### note: *VARIABLE --> (ONLY NEEDED ON PRODUCTION)
+###### Shopify access token is needed for shopify manager
 
 * API__DISCOGS__USERTOKEN = < Discogs username >
 * API__INSTAGRAM__ACCESS_TOKEN = < Instagram access token >
