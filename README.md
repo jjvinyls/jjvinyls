@@ -1,4 +1,19 @@
 # JJ VINYLS
+
+## .Environmental Variables (Create .env file root)
+###### note: *VARIABLE --> (ONLY NEEDED ON PRODUCTION)
+
+* API__DISCOGS__USERTOKEN = < Discogs username >
+* API__INSTAGRAM__ACCESS_TOKEN = < Instagram access token >
+* API__SHOPIFY__ACCESS_TOKEN = < Shopify access token >
+* API__SHOPIFY__SHOP_NAME = < Shopify shop name >
+* APP__BASE_URL = < App base url >
+* APP__MONGO_URI = < Mongo URI >
+* APP__SECRET_KEY = < App secret here >
+* FUNCTIONALITY__ADMIN = < true (false by default) >
+* LABEL_CREATOR__BASE_URL =  http://www.< website-name-here >.com
+* *APP__BASE_URL = http://www.< website-name-here >.com
+
 ## Note to Self..
 Anytime you are creating code that will modify the database think from the server side first. A good application is lite and most of the work should be done by the server.
 
