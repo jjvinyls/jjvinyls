@@ -13,7 +13,7 @@ APP__SECRET_KEY = < App secret here >
 FUNCTIONALITY__ADMIN = < true (false by default) >
 LABEL_CREATOR__BASE_URL =  http://www.< website-name-here >.com
 
-# REQUIRED ONLY NEEDED ON PRODUCTION
+# ONLY REQUIRED ON PRODUCTION
 APP__BASE_URL = http://www.< website-name-here >.com
 ```
 ## Note to Self..
