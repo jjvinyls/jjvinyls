@@ -26,10 +26,7 @@ module.exports = {
 			height: "1.5in",
 			printBackground: true,
 			displayHeaderFooter: true,
-			
 		});
-
-		console.log(pdf);
 
 		// Close the browser instance
 		await browser.close();
