@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer');
 module.exports = {
 	createBufferFromHTML: async (pdfHTML) => {
 		// Create a browser instance
-		const browser = await puppeteer.launch();
+		const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
 
 		// Create a new page
 		const page = await browser.newPage();
