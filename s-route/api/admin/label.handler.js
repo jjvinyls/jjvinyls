@@ -112,94 +112,69 @@ module.exports = {
 				).render()
 
 				// [PDF] Create Buffer from HTML //
-				const pdfGenerated = await pdf.createBufferFromHTML(
-					`
-						<html>
-						<body>
-							<style>
-								* {
-									font-family: Sans-serif;
-								}
-						
-								table {
-									width: 100%;
-									margin: 0;
-									padding: 0;
-								}
-						
-								tr {
-									width: 100%;
-									margin: 0;
-									padding: 0;
-								}
-						
-								td {
-									margin: 0;
-									padding: 0;
-								}
-						
-								.data1 {
-									width: 60%;
-									font-size: 8px;
-								}
-						
-								.data1 h6 {
-									margin: 0;
-									font-size: 8px;
-								}
-						
-								.data1 .price {
-									margin: 0;
-									font-size: 12px;
-								}
-						
-								.data2 {
-									width: 40%;
-									text-align: right;
-								}
-						
-								.data2 svg {
-									height: 40px;
-									width: 40px;
-								}
-						
-								.data3 {
-									width: 100%;
-								}
-							</style>
-		
-							<table style="width: 100%;">
-								<tr style="">
-									<td class="data1" style="margin: 0; padding: 0;">
-										<h6 class="price" style="margin: 0; font-size: 16px;">$${v.price}</h6>
-										<h6 style="font-size: 16px;">[${v.location}]</h6>
-										<h6 style="font-size: 16px;">
-											${
-												v.albumTitle.length > 15 ?
-												v.albumTitle.substring(0, 15 - 3) + '...' :
-												v.albumTitle
-											}
-										</h6>
-										<h6 style="font-size: 16px;">${v.listing_id}</h6>
-									</td>
+				const pdfGenerated = await pdf.createBufferFromHTML(`
+					<style>
+						* {
+							font-family: Sans-serif;
+						}
+			
+						h6 {
+							margin: 0;
+						}
 
-									<td class="data2" style="margin: 0; padding: 0;">
-										${QRCodeLabel}
-									</td>
-								</tr>
-							</table>
-		
-							<table style="width: 100%;">
-								<tr style="width: 100%; margin: 0; padding: 0;">
-									<td class="data3" style="width: 100%;">
-										${new XMLSerializer().serializeToString(barCodeElement)}
-									</td>
-								</tr>
-							</table>
-						</body>
-						</html>
-					`
-				)
+						.data1 {
+							margin: 0;
+							padding: 0;
+						}
+
+						.data2 {
+							margin: 0;
+							padding: 0;
+						}
+				
+						.data2 svg {
+							margin: 0;
+							padding: 0;
+							height: 50px;
+							width: 50px;
+						}
+				
+						.data3 {
+							margin: 0;
+							padding: 0;
+							width: 100%;
+						}
+					</style>
+
+					<table style="width: 100%;">
+						<tr style="">
+							<td class="data1">
+								<h6 class="price" style="font-size: 16px;">$${v.price}</h6>
+								<h6 style="font-size: 16px;">[${v.location}]</h6>
+								<h6 style="font-size: 14px;">
+									${
+										v.albumTitle.length > 15 ?
+										v.albumTitle.substring(0, 15 - 3) + '...' :
+										v.albumTitle
+									}
+								</h6>
+								<h6 style="font-size: 14px;">${v.listing_id}</h6>
+							</td>
+
+							<td class="data2">
+								${QRCodeLabel}
+							</td>
+						</tr>
+					</table>
+
+					<table style="width: 100%;">
+						<tr style="width: 100%; margin: 0; padding: 0;">
+							<td class="data3" style="width: 100%;">
+								${new XMLSerializer().serializeToString(barCodeElement)}
+							</td>
+						</tr>
+					</table>
+				`);
 	
 				toBeMerged.push(pdfGenerated)
 			}
