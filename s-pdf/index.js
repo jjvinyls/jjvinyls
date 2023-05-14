@@ -6,7 +6,7 @@ module.exports = {
 		// Create a browser instance
 		const browser = await puppeteer.launch({
 			headless: true,
-			args: ["--no-sandbox","--disable-setuid-sandbox"]
+			args: ["--no-sandbox"]
 		});
 
 		// Create a new page
