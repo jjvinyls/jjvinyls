@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const cors = require('cors')
 const express = require('express')
 
@@ -8,7 +8,7 @@ const Auth = require('../../../../s-middleware/Auth')
 const rh = require('../../../../s-route-handler/api/admin/shopify/product')
 
 
-// [EXPRESS + USE] //
+// [EXPRESS + USE]
 const router = express.Router().use(cors())
 
 

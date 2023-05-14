@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const cors = require('cors')
 const express = require('express')
 
@@ -8,11 +8,11 @@ const Auth = require('../../../s-middleware/Auth')
 const pdf = require('../../../s-pdf')
 
 
-// [EXPRESS + USE] //
+// [EXPRESS + USE]
 const router = express.Router().use(cors())
 
 
-// [MAIN-ROUTE] //
+// [MAIN-ROUTE]
 router.post(
 	'/get-orders',
 	Auth.adminToken(),
@@ -39,13 +39,13 @@ router.post(
 )
 
 
-// [MAIN-ROUTE] //
+// [MAIN-ROUTE]
 router.post(
 	'/generate-orders-sheet',
 	Auth.adminToken(),
 	async (req, res) => {
 		try {
-			// [INIT] //
+			// [INIT]
 			let html = `
 				<link rel="preconnect" href="https://fonts.googleapis.com">
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

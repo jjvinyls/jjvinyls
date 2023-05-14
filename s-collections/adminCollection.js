@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const bcrypt = require('bcryptjs')
 const mongoose = require('mongoose')
 const validator = require('validator')
@@ -40,7 +40,7 @@ module.exports = {
 
 
 	/******************* [OTHER-CRUD] *******************/
-	// [REGISTER] //
+	// [REGISTER]
 	c_register: async (username, email, password) => {
 		try {
 			// [VALIDATE] username //
@@ -103,7 +103,7 @@ module.exports = {
 			// Hash Password //
 			const hashedPassword = await bcrypt.hash(password, 10)
 	
-			// [SAVE] //
+			// [SAVE]
 			const user = await new AdminModel({
 				_id: mongoose.Types.ObjectId(),
 				role: 'not-admin',

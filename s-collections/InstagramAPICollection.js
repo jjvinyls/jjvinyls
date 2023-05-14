@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const mongoose = require('mongoose')
 
 
@@ -11,10 +11,10 @@ const location = 'InstagramAPICollection'
 
 module.exports = {
 	/******************* [CRUD] *******************/
-	// [CREATE] //
+	// [CREATE]
 	c_create: async ({ access_token }) => {
 		try {
-			// [SAVE] //
+			// [SAVE]
 			const InstagramAPI = await new InstagramAPIModel({
 				_id: mongoose.Types.ObjectId(),
 				access_token: access_token,
@@ -38,7 +38,7 @@ module.exports = {
 	},
 
 	c_read: async () => {
-		// [READ] //
+		// [READ]
 		const instagramAPI = await InstagramAPIModel.find()
 
 		return {
@@ -50,10 +50,10 @@ module.exports = {
 
 	c_update: async ({ access_token }) => {
 		try {
-			// [READ] //
+			// [READ]
 			const instagramAPI = await InstagramAPIModel.findOne()
 
-			// [UPDATE] //
+			// [UPDATE]
 			const updatedInstagramAPI = await InstagramAPIModel.findOneAndUpdate(
 				{ _id: instagramAPI._id },
 				{

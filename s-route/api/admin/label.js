@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const cors = require('cors')
 const express = require('express')
 
@@ -8,11 +8,11 @@ const Auth = require('../../../s-middleware/Auth')
 const handler = require('./label.handler.js')
 
 
-// [EXPRESS + USE] //
+// [EXPRESS + USE]
 const router = express.Router().use(cors())
 
 
-// [GNERATE-AUTOMATIC] //
+// [GNERATE-AUTOMATIC]
 router.post(
 	'/generate-automatic',
 	Auth.adminToken(),
@@ -20,7 +20,7 @@ router.post(
 )
 
 
-// [GENERATE-MANUAL] //
+// [GENERATE-MANUAL]
 router.post(
 	'/generate-manual',
 	Auth.adminToken(),
@@ -28,7 +28,7 @@ router.post(
 )
 
 
-// [GET-SINGLE-LISTING] //
+// [GET-SINGLE-LISTING]
 router.get(
 	'/get-listing/:listing_id',
 	async (req, res) => { res.send(await handler.getListing({ req })) }

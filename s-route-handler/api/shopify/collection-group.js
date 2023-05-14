@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const mongoose = require('mongoose')
 const validator = require('validator')
 
@@ -7,7 +7,7 @@ const validator = require('validator')
 const CollectionGroupCollection = require('../../../s-collections/CollectionGroupCollection')
 
 
-// [INIT] //
+// [INIT]
 const location = ''
 
 

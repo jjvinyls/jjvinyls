@@ -39,7 +39,7 @@
 	import router from '@/router'
 	import AdminService from '@/services/admin/AdminService'
 
-	// [EXPORT] //
+	// [EXPORT]
 	export default {
 		data() {
 			return {
@@ -54,7 +54,7 @@
 			// Retrieve User Data //
 			await this.getAdminData()
 
-			// [LOG] //
+			// [LOG]
 			//this.log()
 		},
 

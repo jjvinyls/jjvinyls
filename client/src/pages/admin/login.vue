@@ -81,7 +81,7 @@
 	import router from '@/router'
 	import AdminService from '@/services/admin/AdminService'
 
-	// [EXPORT] //
+	// [EXPORT]
 	export default {
 		components: {
 			Alert

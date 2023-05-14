@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const cors = require('cors')
 const express = require('express')
 
@@ -9,23 +9,23 @@ const rh_admin = require('../../../s-route-handler/api/admin')
 const rateLimiters = require('../../../s-rate-limiters')
 
 
-// [EXPRESS + USE] //
+// [EXPRESS + USE]
 const router = express.Router().use(cors())
 
 
-// [INIT] //
+// [INIT]
 const secretKey = config.app.secretKey
 
 
 /******************* [LOGIN/REGISTER] *******************/
-// [LOGIN] //
+// [LOGIN]
 router.post(
 	'/login',
 	async (req, res) => { res.send(await rh_admin.login({ req })) }
 )
 
 
-// [REGISTER] //
+// [REGISTER]
 router.post(
 	'/register',
 	rateLimiters.registrationLimiter,

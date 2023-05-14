@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const JsBarcode = require('jsbarcode')
 const mergePDFBuffers = require('merge-pdf-buffers')
 const QRCode = require('qrcode')
@@ -14,10 +14,10 @@ const pdf = require('../../../s-pdf')
 module.exports = {
 	generateAutomatic: async ({ req }) => {
 		try {
-			// [INIT] //
+			// [INIT]
 			let listings = []
 
-			// [API] //
+			// [API]
 			const discogsListings = await api_discogs.getInventory({
 				daysAgo: parseInt(req.body.daysAgo),
 			})
@@ -27,7 +27,7 @@ module.exports = {
 				// [INIT] Const //
 				const v = req.body.vinylsJSON[i]
 
-				// [LISTING_ID] //
+				// [LISTING_ID]
 				for (let i = 0; i < discogsListings.length; i++) {
 					const dL = discogsListings[i]
 					
@@ -55,8 +55,8 @@ module.exports = {
 		}
 		catch (err) {
 			return {
-				executed: true,
-				status: true,
+				executed: false,
+				status: false,
 				location: '/api/label/generate-automatic: Error -->',
 				message: `/api/label/generate-automatic: Error --> ${err}`,
 			}
@@ -66,10 +66,10 @@ module.exports = {
 
 	generateManual: async ({ req }) => {
 		try {
-			// [INIT] //
+			// [INIT]
 			let toBeMerged = []
 
-			// [DOCUMENT] //
+			// [DOCUMENT]
 			const document = new DOMImplementation()
 				.createDocument(
 					'http://www.w3.org/1999/xhtml',
@@ -80,13 +80,18 @@ module.exports = {
 			for (let i = 0; i < req.body.vinylsJSON.length; i++) {
 				const v = req.body.vinylsJSON[i]
 
-				// [QR-CODE] //
+				// [QR-CODE]
 				const QRCodeLabel = await QRCode.toString(
 					`${config.labelCreator.baseURL}/checkout/${v.listing_id}`,
-					{ type: 'svg' }
+					{
+						type: "svg",
+						margin: 0,
+						padding: 0,
+						width: 100
+					}
 				)
 	
-				// [BAR-CODE] //
+				// [BAR-CODE]
 				const barCodeElement = document.createElementNS(
 					'http://www.w3.org/2000/svg',
 					'svg'
@@ -98,7 +103,7 @@ module.exports = {
 					{
 						xmlDocument: document,
 						lineColor: "black",
-						width: 1.2,
+						width: 1.8,
 						height: 20,
 						fontSize: 8,
 						margin: 0,
@@ -109,102 +114,105 @@ module.exports = {
 				// [PDF] Create Buffer from HTML //
 				const pdfGenerated = await pdf.createBufferFromHTML(
 					`
-						<style>
-							* {
-								font-family: Sans-serif;
-							}
-					
-							table {
-								width: 100%;
-								margin: 0;
-								padding: 0;
-							}
-					
-							tr {
-								width: 100%;
-								margin: 0;
-								padding: 0;
-							}
-					
-							td {
-								margin: 0;
-								padding: 0;
-							}
-					
-							.data1 {
-								width: 60%;
-								font-size: 8px;
-							}
-					
-							.data1 h6 {
-								margin: 0;
-								font-size: 8px;
-							}
-					
-							.data1 .price {
-								margin: 0;
-								font-size: 12px;
-							}
-					
-							.data2 {
-								width: 40%;
-								text-align: right;
-							}
-					
-							.data2 svg {
-								height: 40px;
-								width: 40px;
-							}
-					
-							.data3 {
-								width: 100%;
-							}
-						</style>
-	
-						<table>
-							<tr>
-								<td class="data1">
-									<h6 class="price">$${v.price}</h6>
-									<h6>[${v.location}]</h6>
-									<h6>
-										${
-											v.albumTitle.length > 15 ?
-											v.albumTitle.substring(0, 15 - 3) + '...' :
-											v.albumTitle
-										}
-									</h6>
-									<h6>${v.listing_id}</h6>
-								</td>
+						<html>
+						<body>
+							<style>
+								* {
+									font-family: Sans-serif;
+								}
+						
+								table {
+									width: 100%;
+									margin: 0;
+									padding: 0;
+								}
+						
+								tr {
+									width: 100%;
+									margin: 0;
+									padding: 0;
+								}
+						
+								td {
+									margin: 0;
+									padding: 0;
+								}
+						
+								.data1 {
+									width: 60%;
+									font-size: 8px;
+								}
+						
+								.data1 h6 {
+									margin: 0;
+									font-size: 8px;
+								}
+						
+								.data1 .price {
+									margin: 0;
+									font-size: 12px;
+								}
+						
+								.data2 {
+									width: 40%;
+									text-align: right;
+								}
+						
+								.data2 svg {
+									height: 40px;
+									width: 40px;
+								}
+						
+								.data3 {
+									width: 100%;
+								}
+							</style>
+		
+							<table style="width: 100%;">
+								<tr style="">
+									<td class="data1" style="margin: 0; padding: 0;">
+										<h6 class="price" style="margin: 0; font-size: 16px;">$${v.price}</h6>
+										<h6 style="font-size: 16px;">[${v.location}]</h6>
+										<h6 style="font-size: 16px;">
+											${
+												v.albumTitle.length > 15 ?
+												v.albumTitle.substring(0, 15 - 3) + '...' :
+												v.albumTitle
+											}
+										</h6>
+										<h6 style="font-size: 16px;">${v.listing_id}</h6>
+									</td>
 
-								<td class="data2">
-									${QRCodeLabel}
-								</td>
-							</tr>
-						</table>
-	
-						<table>
-							<tr>
-								<td class="data3">
-									${new XMLSerializer().serializeToString(barCodeElement)}
-								</td>
-							</tr>
-						</table>
+									<td class="data2" style="margin: 0; padding: 0;">
+										${QRCodeLabel}
+									</td>
+								</tr>
+							</table>
+		
+							<table style="width: 100%;">
+								<tr style="width: 100%; margin: 0; padding: 0;">
+									<td class="data3" style="width: 100%;">
+										${new XMLSerializer().serializeToString(barCodeElement)}
+									</td>
+								</tr>
+							</table>
+						</body>
+						</html>
 					`
 				)
 	
 				toBeMerged.push(pdfGenerated)
 			}
 			
-			// [MERGE] //
+			// [MERGE]
 			const mergedBuffer = await mergePDFBuffers.merge(toBeMerged)
 
 			return mergedBuffer
 		}
 		catch (err) {
-			console.log(err);
 			return {
-				executed: true,
-				status: true,
+				executed: false,
+				status: false,
 				location: '/api/label/generate-manual',
 				message: `/api/label/generate-manual: Error --> ${err}`,
 			}

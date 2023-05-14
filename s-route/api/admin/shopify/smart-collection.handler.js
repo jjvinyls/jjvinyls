@@ -2,11 +2,11 @@
 const api_shopify = require('../../../../s-api/shopify/smart-collection')
 
 
-// [INIT] //
+// [INIT]
 const location = '/s-route-handler/api/admin/shopify'
 
 
-// [DELAYER] //
+// [DELAYER]
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 
@@ -19,7 +19,7 @@ module.exports = {
 
 	rh_create_artist: async ({ req }) => {
 		try {
-			// [INIT] //
+			// [INIT]
 			let cache = {
 				existantCollections: [],
 				newlyCreatedCollection: [],
@@ -28,7 +28,7 @@ module.exports = {
 			// [API][SHOPIFY] Get all collections //
 			const collections = await api_shopify.a_list_all()
 	
-			// [ERROR] //
+			// [ERROR]
 			if (!collections.status) { return collections }
 
 			console.log('Current Collections Count:', collections.collections.length)
@@ -38,7 +38,7 @@ module.exports = {
 				cache.existantCollections.push(collections.collections[i].title)
 			}
 
-			// [FOR-EACH] //
+			// [FOR-EACH]
 			for (let i = 0; i < req.body.JSONData.length; i++) {
 				const artist = req.body.JSONData[i].artist
 	

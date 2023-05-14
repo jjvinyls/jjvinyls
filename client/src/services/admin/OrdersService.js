@@ -1,9 +1,9 @@
-// [IMPORT] //
+// [IMPORT]
 import axios from 'axios'
 import download from 'downloadjs'
 
 
-// [AUTH-TOKEN-SETUP] //
+// [AUTH-TOKEN-SETUP]
 const authAxios = async () => {
 	return axios.create({
 		baseURL: '/api/admin/orders',
@@ -17,7 +17,7 @@ export default {
 	authAxios,
 
 
-	// [GENERATE] //
+	// [GENERATE]
 	s_getOrders: async function ({ daysAgo }) {
 		try {
 			const authAxios = await this.authAxios()

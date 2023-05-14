@@ -41,7 +41,7 @@
 </template>
 
 <script>
-	// [IMPORT] //
+	// [IMPORT]
 	import { MapPinIcon } from 'vue-feather-icons'
 
 	// [IMPORT] Personal //

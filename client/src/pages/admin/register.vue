@@ -107,7 +107,7 @@
 	import AdminService from '@/services/admin/AdminService'
 	import Alert from '@/components/inform/Alert'
 
-	// [EXPORT] //
+	// [EXPORT]
 	export default {
 		data() {
 			return {
@@ -133,7 +133,7 @@
 
 		methods: {
 			async register() {
-				// [REGISTER] //
+				// [REGISTER]
 				try {
 					this.reqData = await AdminService.s_register({
 						username: this.formData.username,

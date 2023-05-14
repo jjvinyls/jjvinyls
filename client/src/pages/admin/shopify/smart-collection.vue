@@ -37,7 +37,7 @@
 </template>
 
 <script>
-	// [IMPORT] //
+	// [IMPORT]
 	import AutomaticCreator from '../../../components/admin/shopify/smart-collection/AutomaticCreator'
 	import Deleter from '../../../components/admin/shopify/smart-collection/Deleter'
 	import ViewAll from '../../../components/admin/shopify/smart-collection/ViewAll'
@@ -77,7 +77,7 @@
 				})
 
 				if (this.resData.status) {
-					// [CLEAR-ERROR] //
+					// [CLEAR-ERROR]
 					this.error = ''
 
 					this.collections = this.resData.collections

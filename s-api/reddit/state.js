@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const Fuse = require('fuse.js')
 
 
@@ -6,7 +6,7 @@ const Fuse = require('fuse.js')
 const config = require('../../s-config')
 
 
-// [INIT] //
+// [INIT]
 let posts = []
 
 
@@ -15,7 +15,7 @@ module.exports = {
 
 
 	insertInto: async function ({ newPosts }) {
-		// [SEARCH] //	
+		// [SEARCH]	
 		const fuse = new Fuse(
 			newPosts,
 			{
@@ -27,7 +27,7 @@ module.exports = {
 
 		const results = fuse.search("'for 'sale")
 
-		// [UPDATE] //
+		// [UPDATE]
 		for (let i = 0; i < results.length; i++) {
 			const result = results[i].item
 

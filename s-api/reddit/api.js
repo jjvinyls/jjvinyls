@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const axios = require('axios')
 
 

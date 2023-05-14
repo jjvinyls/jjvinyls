@@ -1,4 +1,4 @@
-// [EXPORT] //
+// [EXPORT]
 module.exports = {
 	publicPath: '/',
 	devServer: {

@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const mongoose = require('mongoose')
 
 
@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const CollectionGroupModel = require('../s-models/CollectionGroupModel')
 
 
-// [INIT] //
+// [INIT]
 const location = '/s-collections/CollectionGroupCollection'
 
 
@@ -20,7 +20,7 @@ module.exports = {
 				title: title,
 			}).save()
 
-			// [SUCCESS] //
+			// [SUCCESS]
 			return {
 				executed: true,
 				status: true,
@@ -42,7 +42,7 @@ module.exports = {
 	c_findOne: async ({ query }) => {
 		const result = await CollectionGroupModel.findOne(query)
 
-		// [NOTHING-FOUND] //
+		// [NOTHING-FOUND]
 		if (!result) {
 			return {
 				executed: true,

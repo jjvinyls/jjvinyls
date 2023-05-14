@@ -93,7 +93,7 @@
 
 
 			async convertCSVToJSON(event) {
-				// [LOADING] //
+				// [LOADING]
 				this.loading = true
 
 				this.artist.JSONData = await CSVHandler.CSVtoJSON({
@@ -102,7 +102,7 @@
 
 				this.cleanUpArtistJSONData()
 				
-				// [LOADING] //
+				// [LOADING]
 				this.loading = false
 			},
 

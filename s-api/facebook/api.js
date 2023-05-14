@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const fetch = require('node-fetch')
 
 
@@ -7,7 +7,7 @@ const FacebookListingCollection = require('../../s-collections/FacebookListingCo
 const config = require('../../s-config')
 
 
-// [INIT] //
+// [INIT]
 const location = '/s-api/facebook/api'
 
 
@@ -36,9 +36,9 @@ async function attempt_update() {
 		
 		fetchData = await fetchData.json()
 
-		// [CHECK-ERROR] //
+		// [CHECK-ERROR]
 		if (fetchData.errors) {
-			// [FAILURE] //
+			// [FAILURE]
 			if (config.nodeENV !== 'production') {
 				console.log('FAILURE - attempt_update:', fetchData.errors)
 			}
@@ -51,7 +51,7 @@ async function attempt_update() {
 			}
 		}
 		else {
-			// [SUCCESS] //
+			// [SUCCESS]
 			for (let i = 0; i < fetchData.data.marketplace_search.feed_units.edges.length; i++) {
 				const fbl = fetchData.data.marketplace_search.feed_units.edges[i]
 				
@@ -80,7 +80,7 @@ async function attempt_update() {
 
 async function tryAttempts() {
 	try {
-		// [ATTEMPT-1] //
+		// [ATTEMPT-1]
 		const attempt = await attempt_update()
 
 		if (attempt.status) {
@@ -92,7 +92,7 @@ async function tryAttempts() {
 			}
 		}
 		
-		// [FAIL] //
+		// [FAIL]
 		return {
 			executed: true,
 			status: false,
@@ -113,10 +113,10 @@ async function tryAttempts() {
 
 module.exports = {
 	loop: async function () {
-		// [INIT] //
+		// [INIT]
 		let attempt = await tryAttempts()
 
-		// [LOOP] //
+		// [LOOP]
 		var attemptLoop = setInterval(async function () {
 			console.log('attemptLoop')
 

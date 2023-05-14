@@ -1,6 +1,6 @@
 const companyInfo = require('../companyInfo')
 
-// [EXPORT] //
+// [EXPORT]
 module.exports = {
 	r1: {
 		c1: { title: 'About Us', },

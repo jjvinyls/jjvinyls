@@ -1,10 +1,10 @@
-// [REQUIRE] //
+// [REQUIRE]
 const Discogs = require('disconnect').Client;
 
 // [REQUIRE] Personal //
 const config = require('../../s-config')
 
-// [FORMAT] //
+// [FORMAT]
 const toTimestamp = (strDate) => { return Date.parse(strDate) / 1000 }
 
 module.exports = {
@@ -12,11 +12,11 @@ module.exports = {
 		// [INIT] Const //
 		const maxPostedSecondsAgo = 86400 * daysAgo
 
-		// [INIT] //
+		// [INIT]
 		let allListings = []
 		let runEachPageLoop = true
 
-		// [DISCOGS] //
+		// [DISCOGS]
 		const marketplace = new Discogs({
 			userToken: config.api.discogs.userToken
 		}).marketplace()
@@ -45,7 +45,7 @@ module.exports = {
 
 			// [FOR] Each Listing in Page //
 			for (let i = 0; i < retrieved.listings.length; i++) {
-				// [INIT] //
+				// [INIT]
 				const listing = retrieved.listings[i]
 
 				const postedSecondsAgo = Math.ceil(
@@ -54,16 +54,16 @@ module.exports = {
 				
 				// If posted is longer than search period
 				if (postedSecondsAgo < maxPostedSecondsAgo) {
-					// [PUSH] //
+					// [PUSH]
 					allListings.push(listing)
 				}
 				else {
-					// [FLAG] //
+					// [FLAG]
 					runEachPageLoop = false
 				}
 			}
 			
-			// [BREAK] //
+			// [BREAK]
 			if (!runEachPageLoop) { break }
 		}
 
@@ -73,7 +73,7 @@ module.exports = {
 	
 
 	getListing: async function ({ listing_id }) {
-		// [DISCOGS] //
+		// [DISCOGS]
 		const marketplace = new Discogs({ userToken: config.api.discogs.userToken })
 		.marketplace()
 

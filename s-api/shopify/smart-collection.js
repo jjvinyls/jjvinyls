@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const Shopify = require('shopify-api-node')
 
 
@@ -6,21 +6,21 @@ const Shopify = require('shopify-api-node')
 const config = require('../../s-config')
 
 
-// [SHOPIFY] //
+// [SHOPIFY]
 const shopify = new Shopify({
 	shopName: config.api.shopify.shopName,
 	accessToken: config.api.shopify.accessToken,
 })
 
 
-// [INIT] //
+// [INIT]
 const location = '/s-api/shopify'
 
 
 module.exports = {
 	a_create: async ({ title, rules }) => {
 		try {
-			// [API][SHOPIFY] //
+			// [API][SHOPIFY]
 			const result = await shopify.smartCollection.create({
 				title,
 				rules
@@ -46,7 +46,7 @@ module.exports = {
 
 	a_list_all: async () => {
 		try {
-			// [INIT] //
+			// [INIT]
 			let collections = []
 			let params = { limit: 50 }
 			
@@ -57,7 +57,7 @@ module.exports = {
 			do {
 				const collection = await shopify.smartCollection.list(params) || []
 
-				// [FOR-EACH[PUSH] //
+				// [FOR-EACH[PUSH]
 				for (let i = 0; i < collection.length; i++) {
 					collections.push(collection[i])
 				}
@@ -94,10 +94,10 @@ module.exports = {
 				}
 			}
 
-			// [INIT] //
+			// [INIT]
 			let collections
 
-			// [COUNT] //
+			// [COUNT]
 			const collectionCount = await shopify.smartCollection.count()
 			
 			// [CALCULATE] maxPages //
@@ -107,13 +107,13 @@ module.exports = {
 			let i = 0
 			let params = { limit: limit }
 			while (i < page && i !== maxPages && params) {
-				// [API][SHOPIFY] //
+				// [API][SHOPIFY]
 				collections = await shopify.smartCollection.list(params)
 			
-				// [PAGINATION-NEXT] //
+				// [PAGINATION-NEXT]
 				params = collections.nextPageParameters
 				
-				// [INCREMENT] //
+				// [INCREMENT]
 				i++
 			}
 
@@ -138,7 +138,7 @@ module.exports = {
 
 	a_update: async ({ id, params }) => {
 		try {
-			// [API][SHOPIFY] //
+			// [API][SHOPIFY]
 			const result = await shopify.smartCollection.update(id, params)
 
 			console.log(result)
@@ -162,7 +162,7 @@ module.exports = {
 
 	a_delete: async ({ id }) => {
 		try {
-			// [API][SHOPIFY] //
+			// [API][SHOPIFY]
 			const deletedSmartCollection = await shopify.smartCollection.delete(id)
 
 			return {

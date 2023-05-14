@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const cors = require('cors')
 const express = require('express')
 
@@ -6,7 +6,7 @@ const express = require('express')
 const rh = require('../../../s-route-handler/api/shopify/collection-group')
 
 
-// [EXPRESS + USE] //
+// [EXPRESS + USE]
 const router = express.Router().use(cors())
 
 

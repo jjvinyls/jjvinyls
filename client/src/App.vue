@@ -69,10 +69,10 @@
 					this.reqData = await Service.index()
 
 					if (this.reqData.status) {
-						// [LOCAL-STORAGE] //
+						// [LOCAL-STORAGE]
 						localStorage.setItem('node_env', this.reqData.node_env)
 
-						// [STORE] //
+						// [STORE]
 						this.$store.state.nodeENV = this.reqData.node_env
 					}
 
@@ -99,7 +99,7 @@
 			
 			EventBus.$on('force-rerender', () => { this.forceRerender() })
 
-			// [LOG] //
+			// [LOG]
 			this.log()
 		},
 	}

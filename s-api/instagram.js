@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const axios = require('axios')
 
 
@@ -7,7 +7,7 @@ const config = require('../s-config')
 const InstagramAPICollection = require('../s-collections/InstagramAPICollection')
 
 
-// [INIT] //
+// [INIT]
 const baseURL = 'https://graph.instagram.com'
 const location = '/s-api/instagram'
 
@@ -70,7 +70,7 @@ module.exports = {
 				access_token: instagramAPIObj.instagramAPI[0].access_token
 			})
 
-			// [UPDATE][InstagramAPI] //
+			// [UPDATE][InstagramAPI]
 			await InstagramAPICollection.c_update({
 				access_token: rtObj.data.access_token
 			})

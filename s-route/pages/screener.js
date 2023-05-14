@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const cors = require('cors')
 const express = require('express')
 const validator = require('validator')
@@ -10,11 +10,11 @@ const FacebookListsingCollection = require('../../s-collections/FacebookListingC
 const Auth = require('../../s-middleware/Auth')
 
 
-// [EXPRESS + USE] //
+// [EXPRESS + USE]
 const router = express.Router().use(cors())
 
 
-// [INIT] //
+// [INIT]
 const location = '/s-route/api/listings'
 
 

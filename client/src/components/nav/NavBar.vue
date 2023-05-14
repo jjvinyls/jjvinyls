@@ -126,7 +126,7 @@
 </template>
 
 <script>
-	// [IMPORT] //
+	// [IMPORT]
 	import { MenuIcon } from 'vue-feather-icons'
 
 	// [IMPORT] Personal //
@@ -148,7 +148,7 @@
 				buttons: buttons,
 				companyInfo: companyInfo,
 
-				// [MENU] //
+				// [MENU]
 				sideMenuOpen: false,
 
 				notHomeGIF: 'https://images2.imgbox.com/d3/52/vyUnuXH4_o.gif',

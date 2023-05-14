@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const csvtojson = require('csvtojson')
 
 function readFileAsync(file) {

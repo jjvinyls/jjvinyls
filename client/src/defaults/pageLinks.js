@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const feather = require('feather-icons')
 
 

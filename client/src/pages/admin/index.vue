@@ -37,7 +37,7 @@
 	import router from '@/router'
 	import PageService from '@/services/PageService'
 
-	// [EXPORT] //
+	// [EXPORT]
 	export default {
 		components: {
 			FunctionButtons,

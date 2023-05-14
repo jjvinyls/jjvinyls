@@ -10,7 +10,7 @@
 const FacebookListingModel = require('../s-models/FacebookListingModel')
 
 
-// [INIT] //
+// [INIT]
 const location = '/s-collections/FacebookListingCollection'
 
 
@@ -18,7 +18,7 @@ module.exports = {
 	/*** [CRUD] ***/
 	readAll_sorted: async ({ sort }) => {
 		try {
-			// [SANITIZE] //
+			// [SANITIZE]
 			sort = parseInt(sort)
 
 			// [VALIDATE] sort //
@@ -57,7 +57,7 @@ module.exports = {
 	/*** [CRUD-OTHER] ***/
 	storeFBListing: async (fBlisting) => {
 		try {
-			// [CHECK-DUPLICATE] //
+			// [CHECK-DUPLICATE]
 			const search = await FacebookListingModel.findOne(fBlisting)
 
 			if (!search) {

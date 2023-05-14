@@ -161,7 +161,7 @@
 </template>
 
 <script>
-	// [IMPORT] //
+	// [IMPORT]
 	import { MapPinIcon, PhoneIcon, MailIcon } from 'vue-feather-icons'
 
 

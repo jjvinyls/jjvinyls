@@ -1,9 +1,9 @@
-// [IMPORT] //
+// [IMPORT]
 import axios from 'axios'
 import download from 'downloadjs'
 
 
-// [AUTH-TOKEN-SETUP] //
+// [AUTH-TOKEN-SETUP]
 const authAxios = async () => {
 	return axios.create({
 		baseURL: '/api/admin/label',
@@ -17,7 +17,7 @@ export default {
 	authAxios,
 
 
-	// [GENERATE] //
+	// [GENERATE]
 	s_generateAutomatic: async function ({ daysAgo, vinylsJSON }) {
 		try {
 			const authAxios = await this.authAxios()
@@ -42,7 +42,7 @@ export default {
 	},
 
 
-	// [GENERATE] //
+	// [GENERATE]
 	s_generateManual: async function ({ vinylsJSON }) {
 		try {
 			const authAxios = await this.authAxios()

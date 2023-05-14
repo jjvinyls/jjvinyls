@@ -1,4 +1,4 @@
-// [IMPORT] //
+// [IMPORT]
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -56,7 +56,7 @@ import vinylRecords from '@/pages/vinyl-records'
 import NotFound from '@/pages/404'
 
 
-// [USE] //
+// [USE]
 Vue.use(Router)
 
 
@@ -359,7 +359,7 @@ const router = new Router ({
 })
 
 
-// [VUE-ROUTER-SET-TITLE] //
+// [VUE-ROUTER-SET-TITLE]
 router.beforeEach((to, from, next) => {
 	document.title = to.meta.title + ' - ' + companyInfo.companyName
 	next()

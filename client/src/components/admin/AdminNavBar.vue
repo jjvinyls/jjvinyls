@@ -34,7 +34,7 @@
 	import AdminService from '@/services/admin/AdminService'
 	import FunctionButtons from './FunctionButtons.vue'
 
-	// [EXPORT] //
+	// [EXPORT]
 	export default {
 		methods: {
 			logout() {

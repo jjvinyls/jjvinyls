@@ -1,32 +1,39 @@
-const pdf = require('html-pdf')
+const puppeteer = require('puppeteer');
 
-// [INIT] //
-const defaultOptions = {
-	format: 'A9',
-	orientation: 'landscape',
-	quality: 100,
-	border: {
-		left: '0cm',
-		right: '0cm',
-		top: '0cm',
-		bottom: '0cm',
-	},
-	header: { height: '0mm' },
-	footer: { height: '0mm' }
-}
 
 module.exports = {
-	createBufferFromHTML: async function (pdfHTML, options = defaultOptions) {
-		return new Promise(
-			(resolve, reject) => {
-				pdf.create(pdfHTML, options).toBuffer(
-					function (err, buffer) {
-						if (err) { reject(err) }
+	createBufferFromHTML: async (pdfHTML) => {
+		// Create a browser instance
+		const browser = await puppeteer.launch();
 
-						resolve(buffer)
-					}
-				)
-			}
-		)
-	},
+		// Create a new page
+		const page = await browser.newPage();
+
+		await page.setContent(pdfHTML, { waitUntil: 'domcontentloaded' });
+
+		// To reflect CSS used for screens instead of print
+		//await page.emulateMediaType('screen');
+
+		// Downlaod the PDF
+		const pdf = await page.pdf({
+			margin: {
+				top: '0',
+				right: '0',
+				bottom: '0',
+				left: '0'
+			},
+			width: "2in",
+			height: "1.5in",
+			printBackground: true,
+			displayHeaderFooter: true,
+			
+		});
+
+		console.log(pdf);
+
+		// Close the browser instance
+		await browser.close();
+
+		return pdf
+	}
 }

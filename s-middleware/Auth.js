@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const jwt = require('jsonwebtoken')
 const validator = require('validator')
 
@@ -7,16 +7,16 @@ const validator = require('validator')
 const config = require('../s-config')
 
 
-// [INIT] //
+// [INIT]
 const secretKey = config.app.secretKey
 
 
 class Auth {
 	/******************* [ADMIN] *******************/
-	// [ADMIN-TOKEN] //
+	// [ADMIN-TOKEN]
 	static adminToken() {
 		return (req, res, next) => {
-			// [INIT] //
+			// [INIT]
 			const token = req.headers.admin_authorization
 
 			// If a token exists =>  Validate JWT //

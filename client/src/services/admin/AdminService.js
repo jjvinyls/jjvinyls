@@ -1,4 +1,4 @@
-// [IMPORT] //
+// [IMPORT]
 import jwtDecode from 'jwt-decode'
 import axios from 'axios'
 
@@ -8,7 +8,7 @@ import { EventBus } from '@/main'
 import store from '@/store'
 
 
-// [AUTH-TOKEN-SETUP] //
+// [AUTH-TOKEN-SETUP]
 async function authAxios() {
 	return axios.create({
 		baseURL: '/api/admin',
@@ -39,7 +39,7 @@ export default {
 	},
 	
 	
-	// [LOGIN] //
+	// [LOGIN]
 	s_login: async function (email, password) {
 		try {
 			const authAxios = await this.authAxios()
@@ -47,13 +47,13 @@ export default {
 			const { data } = await authAxios.post('/login', { email, password })
 	
 			if (data.validation) {
-				// [TOKEN] //
+				// [TOKEN]
 				localStorage.setItem('admintoken', data.token)
 	
 				// [STORE][JWT] Get decoded //
 				store.state.admin.decoded = jwtDecode(localStorage.admintoken)
 			
-				// [STORE] //
+				// [STORE]
 				store.state.admin.logged = true
 			}
 	
@@ -69,23 +69,23 @@ export default {
 	},
 	
 	
-	// [LOGOUT] //
+	// [LOGOUT]
 	s_logout: async function () {
-		// [TOKEN] //
+		// [TOKEN]
 		localStorage.removeItem('admintoken')
 	
 		// [STORE][JWT] Get decoded //
 		store.state.admin.decoded = {}
 			
-		// [STORE] //
+		// [STORE]
 		store.state.admin.logged = false
 	
-		// [EMIT] //
+		// [EMIT]
 		EventBus.$emit('admin-logged-out')
 	},
 	
 	
-	// [REGISTER] //
+	// [REGISTER]
 	s_register: async function ({ username, email, password }) {
 		try {
 			const authAxios = await this.authAxios()
@@ -103,10 +103,10 @@ export default {
 	},
 
 
-	// [CHECK-IN] //
+	// [CHECK-IN]
 	s_checkIn: async function () {
 		if (localStorage.admintoken) {
-			// [STORE] //
+			// [STORE]
 			store.state.admin.decoded = jwtDecode(localStorage.admintoken)
 			store.state.admin.logged = true
 		}

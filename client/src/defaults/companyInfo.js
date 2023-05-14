@@ -1,4 +1,4 @@
-// [EXPORT] //
+// [EXPORT]
 module.exports = {
 	companyLogo: require('../assets/media/company/logo.png'),
 	logoSm: require('../assets/logo.svg'),

@@ -1,7 +1,7 @@
 // [IMPORT] Personal //
 @import './sass-variables.scss';
 
-// [HTML-TAGS] //
+// [HTML-TAGS]
 body {
 	font-family: $font-family !important;
 	opacity: 1;
@@ -72,7 +72,7 @@ button { font-family: $font-family !important; }
 		animation-iteration-count: infinite;
 		animation-timing-function: linear;
 	
-		// [MEDIA] //
+		// [MEDIA]
 		@media (max-width: 800px) { background-size: 80%; }
 		@media (max-width: 1200px) { background-size: 40%; }
 	}

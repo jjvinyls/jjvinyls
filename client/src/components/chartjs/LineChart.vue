@@ -1,8 +1,8 @@
 <script>
-	// [IMPORT] //
+	// [IMPORT]
 	import { Line } from 'vue-chartjs'
 
-	// [EXPORT] //
+	// [EXPORT]
 	export default {
 		mixins: [Line],
 

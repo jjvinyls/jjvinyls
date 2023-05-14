@@ -26,7 +26,7 @@
 </template>
 
 <script>
-	// [IMPORT] //
+	// [IMPORT]
 	import { InstagramIcon } from 'vue-feather-icons'
 
 	// [IMPORT] Personal //

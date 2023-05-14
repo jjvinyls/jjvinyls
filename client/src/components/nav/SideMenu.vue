@@ -88,7 +88,7 @@
 </template>
 
 <script>
-	// [IMPORT] //
+	// [IMPORT]
 	import { XIcon } from 'vue-feather-icons'
 
 	// [IMPORT] Personal //
@@ -96,7 +96,7 @@
 	import companyInfo from '@/defaults/companyInfo'
 	import buttons from '@/defaults/pageLinks'
 
-	// [EXPORT] //
+	// [EXPORT]
 	export default {
 		data() {
 			return {

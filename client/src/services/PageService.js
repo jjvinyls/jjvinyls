@@ -1,8 +1,8 @@
-// [IMPORT] //
+// [IMPORT]
 import axios from 'axios'
 
 
-// [AUTH-TOKEN-SETUP] //
+// [AUTH-TOKEN-SETUP]
 const authAxios = async () => {
 	return axios.create({
 		baseURL: '/pages',
@@ -17,7 +17,7 @@ export default {
 	authAxios,
 	
 	
-	// [HOME] //
+	// [HOME]
 	s_home: async function () {
 		try {
 			const authAxios = await this.authAxios()
@@ -34,7 +34,7 @@ export default {
 	},
 
 
-	// [ADMIN] //
+	// [ADMIN]
 	s_admin: async function () {
 		try {
 			const authAxios = await this.authAxios()
@@ -51,7 +51,7 @@ export default {
 	},
 
 
-	// [ADMIN] //
+	// [ADMIN]
 	s_admin_shopify_product_analyze: async function () {
 		try {
 			const authAxios = await this.authAxios()
@@ -68,7 +68,7 @@ export default {
 	},
 
 	
-	// [GALLERY] //
+	// [GALLERY]
 	s_gallery: async function () {
 		try {
 			const authAxios = await this.authAxios()
@@ -87,7 +87,7 @@ export default {
 	},
 
 
-	// [SCREENER] //
+	// [SCREENER]
 	s_screener: async function () {
 		try {
 			const authAxios = await this.authAxios()

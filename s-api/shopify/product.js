@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const Shopify = require('shopify-api-node')
 
 
@@ -6,21 +6,21 @@ const Shopify = require('shopify-api-node')
 const config = require('../../s-config')
 
 
-// [SHOPIFY] //
+// [SHOPIFY]
 const shopify = new Shopify({
 	shopName: config.api.shopify.shopName,
 	accessToken: config.api.shopify.accessToken,
 })
 
 
-// [INIT] //
+// [INIT]
 const location = '/s-api/shopify'
 
 
 module.exports = {
 	a_listAll: async () => {
 		try {
-			// [INIT] //
+			// [INIT]
 			let allProducts = []
 			let params = { limit: 50 }
 			

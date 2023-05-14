@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const express = require('express')
@@ -36,12 +36,12 @@ const p_screener = require('./s-route/pages/screener')
 const port = config.PORT
 
 
-// [EXPRESS+SERVER] //
+// [EXPRESS+SERVER]
 const app = express()
 const server = http.createServer(app)
 
 
-// [MONGOOSE-CONNECTION] //
+// [MONGOOSE-CONNECTION]
 mongoose.connect(
 	config.app.mongoURI,
 	{
@@ -57,7 +57,7 @@ mongoose.connect(
 )
 
 
-// [USE] // Default Stuff // Set static Folder // Rate-Limiter //
+// [USE] Default Stuff // Set static Folder // Rate-Limiter //
 app.use(bodyParser.json({ limit: '50mb' }))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
@@ -84,12 +84,12 @@ app.use('/pages/screener', p_screener)
 
 
 
-// [DEVELOPMENT] //
+// [DEVELOPMENT]
 if (config.nodeENV == 'development') {
-	// [FACEBOOK-LISTINGS] //
+	// [FACEBOOK-LISTINGS]
 	//api_facebookAPI.loop()
 	
-	// [REDDIT-LISTINGS] //
+	// [REDDIT-LISTINGS]
 	//api_redditAPI.update()
 	//setInterval(() => { api_redditAPI.update() }, 30000)
 }
@@ -111,5 +111,5 @@ if (config.nodeENV == 'production') {
 app.use(herokuSSLRedirect.default())
 
 
-// [LISTEN] //
+// [LISTEN]
 server.listen(port, () => { console.log(`Server Running on Port: ${port}`) })

@@ -1,4 +1,4 @@
-// [IMPORT] //
+// [IMPORT]
 import aos from 'aos'
 import { BootstrapVue } from 'bootstrap-vue'
 import Viewer from 'v-viewer'
@@ -25,7 +25,7 @@ import '@/assets/styles/style.scss'
 import '@/vee-validation-rules'
 
 
-// [USE] //
+// [USE]
 Vue.use(ZoomOnHover)
 Vue.use(BootstrapVue)
 Vue.use(Editor)
@@ -39,7 +39,7 @@ Vue.use(VueLazyload, {
 Vue.use(VueYouTubeEmbed)
 
 
-// [GLOBAL-COMPONENTS] //
+// [GLOBAL-COMPONENTS]
 Vue.component('downloadCsv', JsonCSV)
 Vue.component('ValidationObserver', ValidationObserver)
 Vue.component('ValidationProvider', ValidationProvider)
@@ -51,7 +51,7 @@ Vue.component('VueHeadful', VueHeadful)
 export const EventBus = new Vue()
 
 
-// [CONFIG + RENDER] //
+// [CONFIG + RENDER]
 Vue.config.productionTip = false
 new Vue({
 	router,

@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const validator = require('validator')
 
 
@@ -7,7 +7,7 @@ const api_shopify = require('../../../../s-api/shopify/smart-collection')
 const CollectionGroupCollection = require('../../../../s-collections/CollectionGroupCollection')
 
 
-// [INIT] //
+// [INIT]
 const location = ''
 
 
@@ -15,7 +15,7 @@ module.exports = {
 	createOne: async ({ req }) => {
 		try {
 			console.log(req.body);
-			// [VALIDATE] //
+			// [VALIDATE]
 			if (!validator.isAscii(req.body.title)) {
 				return {
 					executed: true,
@@ -33,7 +33,7 @@ module.exports = {
 				}
 			})
 			
-			// [PREVENT-DUPLICATE] //
+			// [PREVENT-DUPLICATE]
 			if (queryResult.collectionGroup) {
 				return {
 					executed: true,
@@ -43,7 +43,7 @@ module.exports = {
 				}
 			}
 
-			// [CREATE] //
+			// [CREATE]
 			return await CollectionGroupCollection.c_create({
 				title: req.body.title,
 				admin: req.admin_decoded.admin_id,
@@ -72,7 +72,7 @@ module.exports = {
 
 	updateOne: async ({ req }) => {
 		console.log(req.body);
-		// [INIT] //
+		// [INIT]
 		let existantCollections = []
 		let collectionGroup = []
 
@@ -80,7 +80,7 @@ module.exports = {
 		// [API][SHOPIFY] Get all collections //
 		const collections = await api_shopify.a_list_all()
 	
-		// [ERROR] //
+		// [ERROR]
 		if (!collections.status) { return collections }
 
 		// [FOR-EACH][LOAD] Existant Collections //
@@ -119,7 +119,7 @@ module.exports = {
 			}
 		})
 
-		// [SUCCESS] //
+		// [SUCCESS]
 		return {
 			executed: true,
 			status: true,

@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const validator = require('validator')
@@ -52,7 +52,7 @@ module.exports = {
 				}
 			}
 
-			// [VALIDATE-PASSWORD] //
+			// [VALIDATE-PASSWORD]
 			if (!bcrypt.compareSync(req.body.password, adminObj.user.password)) {
 				return {
 					executed: true,
@@ -63,7 +63,7 @@ module.exports = {
 				}
 			}
 
-			// [SUCCESSFUL-LOGIN] //
+			// [SUCCESSFUL-LOGIN]
 			const token = jwt.sign(
 				{
 					admin_id: adminObj.user._id,

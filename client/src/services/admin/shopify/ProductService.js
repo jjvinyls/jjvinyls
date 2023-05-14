@@ -1,4 +1,4 @@
-// [IMPORT] //
+// [IMPORT]
 import axios from 'axios'
 
 
@@ -6,7 +6,7 @@ import axios from 'axios'
 const location = 'ShopifyService'
 
 
-// [AUTH-TOKEN-SETUP] //
+// [AUTH-TOKEN-SETUP]
 const authAxios = async () => {
 	return axios.create({
 		baseURL: '/api/admin/shopify/product',

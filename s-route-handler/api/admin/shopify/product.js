@@ -1,4 +1,4 @@
-// [REQUIRE] //
+// [REQUIRE]
 const mongoose = require('mongoose')
 const validator = require('validator')
 
@@ -6,7 +6,7 @@ const validator = require('validator')
 const api_shopify = require('../../../../s-api/shopify/product')
 
 
-// [INIT] //
+// [INIT]
 const location = ''
 
 

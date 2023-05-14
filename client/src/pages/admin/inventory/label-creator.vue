@@ -366,14 +366,14 @@
 			 * [AUTOMATIC]
 			*/
 			async automatic_convertCSVToJSON(event) {
-				// [LOADING] //
+				// [LOADING]
 				this.loading = true
 
 				this.automatic.vinylsJSON = await CSVHandler.CSVtoJSON({
 					file: event.target.files[0]
 				})
 				
-				// [LOADING] //
+				// [LOADING]
 				this.loading = false
 			},
 
